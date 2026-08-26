@@ -138,6 +138,15 @@ document.addEventListener("DOMContentLoaded", () => {
         if (entry.isIntersecting) {
           entry.target.classList.add("active");
           observer.unobserve(entry.target);
+
+          // Clear any transition-delay once entrance animation finishes so hover interactions are immediate
+          setTimeout(() => {
+            if (entry.target.classList.contains("reveal-stagger")) {
+              Array.from(entry.target.children).forEach((child) => {
+                child.style.transitionDelay = "0s";
+              });
+            }
+          }, 500);
         }
       });
     },
@@ -299,24 +308,42 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 10. 3D Tilt Microinteraction for Bento & Collage Cards (Desktop)
+  // 10. Instant & Smooth 3D Tilt Microinteraction for Bento & Collage Cards (Desktop)
   if (window.matchMedia("(min-width: 1024px)").matches) {
     const tiltCards = document.querySelectorAll(".tilt-card");
     tiltCards.forEach((card) => {
+      let isHovered = false;
+
+      card.addEventListener("mouseenter", () => {
+        isHovered = true;
+        card.style.transition = "transform 0.15s ease-out, box-shadow 0.25s ease-out";
+      });
+
       card.addEventListener("mousemove", (e) => {
+        if (!isHovered) return;
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
-        const rotateX = ((y - centerY) / centerY) * -5;
-        const rotateY = ((x - centerX) / centerX) * 5;
+        const rotateX = ((y - centerY) / centerY) * -6;
+        const rotateY = ((x - centerX) / centerX) * 6;
 
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+        // Smooth instant tracking with zero latency
+        card.style.transition = "transform 0.05s ease-out, box-shadow 0.2s ease";
+        card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px)`;
       });
 
       card.addEventListener("mouseleave", () => {
+        isHovered = false;
+        card.style.transition = "transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease";
         card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)";
+
+        setTimeout(() => {
+          if (!isHovered) {
+            card.style.transition = "";
+          }
+        }, 360);
       });
     });
   }
