@@ -208,6 +208,12 @@ document.addEventListener("DOMContentLoaded", () => {
         cta_cte: "CUENTA CORRIENTE CLIENTE"
       };
 
+      // Trigger Confetti Burst
+      if (typeof window.triggerConfetti === "function") {
+        const rect = emitTicketBtn.getBoundingClientRect();
+        window.triggerConfetti(rect.left + rect.width / 2, rect.top);
+      }
+
       if (!receiptContainer) return;
 
       receiptContainer.innerHTML = `

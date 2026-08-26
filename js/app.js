@@ -1,7 +1,43 @@
 /**
- * FACTUTEC - Lógica Global de la Aplicación
- * Scroll Reveal Dinámico, Menú móvil, FAQs, contadores y validaciones.
+ * FACTUTEC - Lógica Global de la Aplicación & Efectos Interactivos FX
+ * Scroll Reveal, Spotlight Cursor, Button Ripples, Confetti FX, FAQs y Contadores.
  */
+
+// Global Confetti Burst FX
+window.triggerConfetti = function (originX, originY) {
+  const colors = ["#38bdf8", "#2563eb", "#10b981", "#f59e0b", "#a855f7", "#ec4899"];
+  const count = 30;
+
+  const startX = originX || window.innerWidth / 2;
+  const startY = originY || window.innerHeight / 2;
+
+  for (let i = 0; i < count; i++) {
+    const particle = document.createElement("div");
+    particle.className = "confetti-particle";
+    
+    // Random color
+    particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+    particle.style.left = startX + "px";
+    particle.style.top = startY + "px";
+
+    // Random trajectory
+    const angle = Math.random() * Math.PI * 2;
+    const distance = 80 + Math.random() * 160;
+    const tx = Math.cos(angle) * distance;
+    const ty = Math.sin(angle) * distance - 30; // slightly upward arc
+    const rot = (Math.random() - 0.5) * 720;
+
+    particle.style.setProperty("--tx", `${tx}px`);
+    particle.style.setProperty("--ty", `${ty}px`);
+    particle.style.setProperty("--rot", `${rot}deg`);
+
+    document.body.appendChild(particle);
+
+    setTimeout(() => {
+      particle.remove();
+    }, 1300);
+  }
+};
 
 document.addEventListener("DOMContentLoaded", () => {
   // 1. Scroll Progress Bar
@@ -64,7 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }, { passive: true });
 
   // 4. Scroll Reveal Intersection Observer System
-  // Automatically tag elements for fluid scroll animations
   const sectionHeaders = document.querySelectorAll(".section-header");
   sectionHeaders.forEach((sh) => sh.classList.add("reveal"));
 
@@ -95,7 +130,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const contactGrid = document.querySelector(".contact-grid");
   if (contactGrid) contactGrid.classList.add("reveal-stagger");
 
-  // Observer
   const revealElements = document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-stagger");
   
   const revealObserver = new IntersectionObserver(
@@ -103,21 +137,50 @@ document.addEventListener("DOMContentLoaded", () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("active");
-          // Optionally unobserve to keep visible
           observer.unobserve(entry.target);
         }
       });
     },
     {
-      root: null,
       threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px"
+      rootMargin: "0px 0px -40px 0px"
     }
   );
 
   revealElements.forEach((el) => revealObserver.observe(el));
 
-  // 5. FAQ Accordion
+  // 5. Spotlight Mouse Glow FX on Bento Cards
+  const glowCards = document.querySelectorAll(".bento-card, .client-card, .pos-terminal-box, .stat-card");
+  glowCards.forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty("--mouse-x", `${x}px`);
+      card.style.setProperty("--mouse-y", `${y}px`);
+    });
+  });
+
+  // 6. Interactive Button Ripple Effect
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest(".btn, .client-filter-pill, .btn-view-client");
+    if (!btn) return;
+
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const circle = document.createElement("span");
+    circle.classList.add("btn-ripple");
+    circle.style.top = `${y}px`;
+    circle.style.left = `${x}px`;
+
+    btn.appendChild(circle);
+
+    setTimeout(() => circle.remove(), 600);
+  });
+
+  // 7. FAQ Accordion
   const faqItems = document.querySelectorAll(".faq-item");
   faqItems.forEach((item) => {
     const questionBtn = item.querySelector(".faq-question");
@@ -147,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 6. Stat Counter Animation on Scroll Observer
+  // 8. Stat Counter Animation on Scroll Observer
   const statsElements = document.querySelectorAll(".counter-number");
   let animated = false;
 
@@ -190,7 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (statsSection) statsObserver.observe(statsSection);
   }
 
-  // 7. Contact Form Submission Handling
+  // 9. Contact Form Submission Handling + Confetti
   const contactForm = document.getElementById("contact-form");
   const formFeedback = document.getElementById("form-feedback");
 
@@ -208,6 +271,13 @@ document.addEventListener("DOMContentLoaded", () => {
           formFeedback.innerHTML = `<div class="alert alert-error">Por favor completá tu nombre y teléfono.</div>`;
         }
         return;
+      }
+
+      // Trigger Confetti
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        const rect = submitBtn.getBoundingClientRect();
+        window.triggerConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2);
       }
 
       // Format WhatsApp Message
@@ -229,7 +299,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 8. 3D Tilt Microinteraction for Bento & Collage Cards (Desktop)
+  // 10. 3D Tilt Microinteraction for Bento & Collage Cards (Desktop)
   if (window.matchMedia("(min-width: 1024px)").matches) {
     const tiltCards = document.querySelectorAll(".tilt-card");
     tiltCards.forEach((card) => {

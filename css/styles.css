@@ -2248,3 +2248,138 @@ button, input, select, textarea {
 .bento-card.highlight-pulse {
   animation: subtlePulse 4s ease-in-out infinite;
 }
+
+/* ==================== 16. Modern Interactive FX ==================== */
+
+/* 1. Card Spotlight Glow on Mouse Movement */
+.bento-card, .client-card, .collage-main-frame, .pos-terminal-box {
+  position: relative;
+}
+
+.bento-card::before, .client-card::before, .pos-terminal-box::before {
+  content: "";
+  position: absolute;
+  top: var(--mouse-y, -1000px);
+  left: var(--mouse-x, -1000px);
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(37, 99, 235, 0) 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+.bento-card:hover::before, .client-card:hover::before, .pos-terminal-box:hover::before {
+  opacity: 1;
+}
+
+/* 2. Shimmer Sweep Animation on Badges */
+.badge-pill.emerald, .sticker-lifetime, .calc-badge-license, .btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.badge-pill.emerald::after, .sticker-lifetime::after, .calc-badge-license::after, .btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-25deg);
+  animation: shimmerSweep 4s infinite;
+}
+
+@keyframes shimmerSweep {
+  0% { left: -150%; }
+  30%, 100% { left: 200%; }
+}
+
+/* 3. Button Click Ripple Effect */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  transform: scale(0);
+  animation: rippleAnimation 0.6s ease-out;
+  pointer-events: none;
+}
+
+@keyframes rippleAnimation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* 4. Ambient Aurora Glows in Hero */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.3) 0%, rgba(37, 99, 235, 0) 70%);
+  top: -120px;
+  right: -60px;
+  border-radius: 50%;
+  filter: blur(60px);
+  z-index: 0;
+  pointer-events: none;
+  animation: auroraFloat1 10s ease-in-out infinite alternate;
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.22) 0%, rgba(16, 185, 129, 0) 70%);
+  bottom: -60px;
+  left: -100px;
+  border-radius: 50%;
+  filter: blur(60px);
+  z-index: 0;
+  pointer-events: none;
+  animation: auroraFloat2 12s ease-in-out infinite alternate;
+}
+
+@keyframes auroraFloat1 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-60px, 50px) scale(1.15); }
+}
+
+@keyframes auroraFloat2 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(70px, -40px) scale(1.2); }
+}
+
+/* 5. Confetti Particle Burst */
+.confetti-particle {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  pointer-events: none;
+  z-index: 99999;
+  border-radius: 2px;
+  animation: confettiFall 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes confettiFall {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx), var(--ty)) rotate(var(--rot)) scale(0.4);
+  }
+}
