@@ -87,12 +87,12 @@ document.addEventListener("DOMContentLoaded", () => {
           
           <div class="client-tech-box">
             <div class="tech-row">
-              <span class="tech-icon"><img src="assets/icons/3d/zap.png" class="emoji-3d emoji-3d-sm" alt="Sistema"></span>
+              <span class="icon-bubble bubble-xs bubble-emerald"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span>
               <span class="tech-label">Sistema:</span>
               <strong class="tech-val">${client.systemInstalled}</strong>
             </div>
             <div class="tech-row">
-              <span class="tech-icon"><img src="assets/icons/3d/package.png" class="emoji-3d emoji-3d-sm" alt="Puestos"></span>
+              <span class="icon-bubble bubble-xs bubble-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M7 7h.01"></path><path d="M17 7h.01"></path><path d="M7 17h.01"></path><path d="M17 17h.01"></path></svg></span>
               <span class="tech-label">Puestos:</span>
               <span class="tech-val">${client.hardware}</span>
             </div>
@@ -171,21 +171,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <div class="modal-details-grid">
           <div class="detail-box">
-            <h4><img src="assets/icons/3d/zap.png" class="emoji-3d" alt="Sistema"> Sistema Implementado</h4>
+            <h4 style="display: flex; align-items: center; gap: 0.45rem;"><span class="icon-bubble bubble-xs bubble-emerald"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span> Sistema Implementado</h4>
             <p><strong>${client.systemInstalled}</strong></p>
             <small>Homologación fiscal ARCA oficial + modo 100% offline</small>
           </div>
           <div class="detail-box">
-            <h4><img src="assets/icons/3d/package.png" class="emoji-3d" alt="Hardware"> Configuración de Hardware</h4>
+            <h4 style="display: flex; align-items: center; gap: 0.45rem;"><span class="icon-bubble bubble-xs bubble-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M7 7h.01"></path><path d="M17 7h.01"></path><path d="M7 17h.01"></path><path d="M17 17h.01"></path></svg></span> Configuración de Hardware</h4>
             <p>${client.hardware}</p>
             <small>Instalado y configurado en el local por FACTUTEC</small>
           </div>
           <div class="detail-box">
-            <h4><img src="assets/icons/3d/gem.png" class="emoji-3d" alt="Clave"> Clave del Negocio</h4>
+            <h4 style="display: flex; align-items: center; gap: 0.45rem;"><span class="icon-bubble bubble-xs bubble-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg></span> Clave del Negocio</h4>
             <p>${client.highlight}</p>
           </div>
           <div class="detail-box">
-            <h4><img src="assets/icons/3d/star.png" class="emoji-3d" alt="Calificación"> Calificación del Servicio</h4>
+            <h4 style="display: flex; align-items: center; gap: 0.45rem;"><span class="icon-bubble bubble-xs bubble-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span> Calificación del Servicio</h4>
             <div class="modal-stars">${"★".repeat(client.rating)} (5/5)</div>
             <p class="modal-quote">"${client.testimonial}"</p>
           </div>

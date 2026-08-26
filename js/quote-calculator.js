@@ -122,16 +122,16 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="calc-total-amount">$${subtotal.toLocaleString("es-AR")}</div>
           </div>
 
-          <div style="background: #fff7ed; border: 1px solid #fed7aa; border-radius: 8px; padding: 0.65rem 0.85rem; font-size: 0.8rem; color: #c2410c; font-weight: 700; display: flex; align-items: center; gap: 0.4rem;">
-            <span><img src="assets/icons/3d/hourglass.png" class="emoji-3d" alt="Reloj"></span>
+          <div style="background: #fff7ed; border: 1px solid #fed7aa; border-radius: 8px; padding: 0.65rem 0.85rem; font-size: 0.8rem; color: #c2410c; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
+            <span class="icon-bubble bubble-xs bubble-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
             <span>Vigencia del precio congelado por 15 días.</span>
           </div>
 
-          <div class="calc-perks-list">
-            <div><img src="assets/icons/3d/check.png" class="emoji-3d" alt="Check"> Licencia activada de por vida (Sin mensualidades)</div>
-            <div><img src="assets/icons/3d/check.png" class="emoji-3d" alt="Check"> Instalación y capacitación inicial por Joel y Emanuel</div>
-            <div><img src="assets/icons/3d/check.png" class="emoji-3d" alt="Check"> Operación 100% Offline garantizada</div>
-            <div><img src="assets/icons/3d/tools.png" class="emoji-3d" alt="Soporte"> Soporte Técnico Postventa: Opcional ($30.000)</div>
+          <div class="calc-perks-list" style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;"><span class="icon-bubble bubble-xs bubble-emerald"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Licencia activada de por vida (Sin mensualidades)</div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;"><span class="icon-bubble bubble-xs bubble-emerald"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Instalación y capacitación inicial por Joel y Emanuel</div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;"><span class="icon-bubble bubble-xs bubble-emerald"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Operación 100% Offline garantizada</div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;"><span class="icon-bubble bubble-xs bubble-sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></span> Soporte Técnico Postventa: Opcional ($30.000)</div>
           </div>
         </div>
       `;

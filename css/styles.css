@@ -512,64 +512,126 @@ button, input, select, textarea {
   border-color: #a7f3d0;
 }
 
-/* --- 6.1. 3D Fluent Icons & Visual Micro-interactions --- */
-.emoji-3d {
-  display: inline-block;
-  vertical-align: -0.15em;
-  width: 1.25em;
-  height: 1.25em;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+/* --- 6.1. Modern Duotone Glass Icon Bubbles Design System --- */
+.icon-bubble {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
   flex-shrink: 0;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
 }
 
-.emoji-3d-sm {
-  width: 1.05em;
-  height: 1.05em;
+/* Color Themes */
+.bubble-blue {
+  background: linear-gradient(135deg, rgba(239, 246, 255, 0.95), rgba(219, 234, 254, 0.6));
+  border: 1px solid rgba(147, 197, 253, 0.5);
+  color: #2563eb;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
 }
 
-.emoji-3d-md {
-  width: 1.5rem;
-  height: 1.5rem;
-  vertical-align: middle;
+.bubble-purple {
+  background: linear-gradient(135deg, rgba(245, 243, 255, 0.95), rgba(237, 233, 254, 0.6));
+  border: 1px solid rgba(196, 181, 253, 0.5);
+  color: #7c3aed;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.08);
 }
 
-.emoji-3d-lg {
-  width: 2.25rem;
-  height: 2.25rem;
-  vertical-align: middle;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.14));
+.bubble-emerald {
+  background: linear-gradient(135deg, rgba(236, 253, 245, 0.95), rgba(209, 250, 229, 0.6));
+  border: 1px solid rgba(110, 231, 183, 0.6);
+  color: #059669;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.12);
 }
 
-.bento-icon-wrapper img.emoji-3d {
-  width: 2.35rem;
-  height: 2.35rem;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.15));
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+.bubble-orange {
+  background: linear-gradient(135deg, rgba(255, 247, 237, 0.95), rgba(254, 237, 213, 0.6));
+  border: 1px solid rgba(253, 186, 116, 0.5);
+  color: #ea580c;
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.08);
 }
 
-.bento-card:hover .bento-icon-wrapper img.emoji-3d {
-  transform: scale(1.12) rotate(4deg);
+.bubble-sky {
+  background: linear-gradient(135deg, rgba(240, 249, 255, 0.95), rgba(224, 242, 254, 0.6));
+  border: 1px solid rgba(125, 211, 252, 0.5);
+  color: #0284c7;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.08);
 }
 
-.trust-item .emoji-3d {
-  width: 1.35rem;
-  height: 1.35rem;
+.bubble-dark {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #38bdf8;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.collage-sticker .emoji-3d {
-  width: 1.35rem;
-  height: 1.35rem;
+.bubble-neutral {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #475569;
 }
 
-.mobile-nav-link .emoji-3d {
-  width: 1.4rem;
-  height: 1.4rem;
+/* Sizes */
+.bubble-xs {
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 6px;
+}
+.bubble-xs svg {
+  width: 0.95rem;
+  height: 0.95rem;
 }
 
-.badge-pill .emoji-3d {
-  width: 1.15em;
-  height: 1.15em;
+.bubble-sm {
+  width: 2.15rem;
+  height: 2.15rem;
+  border-radius: 8px;
+}
+.bubble-sm svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.bubble-md {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 12px;
+}
+.bubble-md svg {
+  width: 1.45rem;
+  height: 1.45rem;
+}
+
+.bubble-lg {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 16px;
+}
+.bubble-lg svg {
+  width: 1.85rem;
+  height: 1.85rem;
+}
+
+/* Hover Interactions */
+.bento-card:hover .icon-bubble {
+  transform: translateY(-2px) scale(1.06);
+}
+.bento-card:hover .bubble-blue { box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2); }
+.bento-card:hover .bubble-purple { box-shadow: 0 8px 20px rgba(124, 58, 237, 0.2); }
+.bento-card:hover .bubble-emerald { box-shadow: 0 8px 20px rgba(16, 185, 129, 0.25); }
+.bento-card:hover .bubble-sky { box-shadow: 0 8px 20px rgba(2, 132, 199, 0.2); }
+.bento-card:hover .bubble-orange { box-shadow: 0 8px 20px rgba(234, 88, 12, 0.2); }
+
+/* Compatibility Utility */
+.trust-item .icon-bubble {
+  margin-right: 0.15rem;
+}
+.mobile-nav-link .icon-bubble {
+  margin-right: 0.65rem;
 }
 
 /* --- 7. Hero Section (Digital Collage & Layering) --- */
