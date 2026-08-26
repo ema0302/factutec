@@ -512,6 +512,66 @@ button, input, select, textarea {
   border-color: #a7f3d0;
 }
 
+/* --- 6.1. 3D Fluent Icons & Visual Micro-interactions --- */
+.emoji-3d {
+  display: inline-block;
+  vertical-align: -0.15em;
+  width: 1.25em;
+  height: 1.25em;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  flex-shrink: 0;
+}
+
+.emoji-3d-sm {
+  width: 1.05em;
+  height: 1.05em;
+}
+
+.emoji-3d-md {
+  width: 1.5rem;
+  height: 1.5rem;
+  vertical-align: middle;
+}
+
+.emoji-3d-lg {
+  width: 2.25rem;
+  height: 2.25rem;
+  vertical-align: middle;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.14));
+}
+
+.bento-icon-wrapper img.emoji-3d {
+  width: 2.35rem;
+  height: 2.35rem;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.15));
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-card:hover .bento-icon-wrapper img.emoji-3d {
+  transform: scale(1.12) rotate(4deg);
+}
+
+.trust-item .emoji-3d {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.collage-sticker .emoji-3d {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.mobile-nav-link .emoji-3d {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.badge-pill .emoji-3d {
+  width: 1.15em;
+  height: 1.15em;
+}
+
 /* --- 7. Hero Section (Digital Collage & Layering) --- */
 .hero-section {
   position: relative;

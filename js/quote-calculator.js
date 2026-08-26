@@ -123,15 +123,15 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
 
           <div style="background: #fff7ed; border: 1px solid #fed7aa; border-radius: 8px; padding: 0.65rem 0.85rem; font-size: 0.8rem; color: #c2410c; font-weight: 700; display: flex; align-items: center; gap: 0.4rem;">
-            <span>⏳</span>
+            <span><img src="assets/icons/3d/hourglass.png" class="emoji-3d" alt="Reloj"></span>
             <span>Vigencia del precio congelado por 15 días.</span>
           </div>
 
           <div class="calc-perks-list">
-            <div>✅ Licencia activada de por vida (Sin mensualidades)</div>
-            <div>✅ Instalación y capacitación inicial por Joel y Emanuel</div>
-            <div>✅ Operación 100% Offline garantizada</div>
-            <div>🛠️ Soporte Técnico Postventa: Opcional ($30.000)</div>
+            <div><img src="assets/icons/3d/check.png" class="emoji-3d" alt="Check"> Licencia activada de por vida (Sin mensualidades)</div>
+            <div><img src="assets/icons/3d/check.png" class="emoji-3d" alt="Check"> Instalación y capacitación inicial por Joel y Emanuel</div>
+            <div><img src="assets/icons/3d/check.png" class="emoji-3d" alt="Check"> Operación 100% Offline garantizada</div>
+            <div><img src="assets/icons/3d/tools.png" class="emoji-3d" alt="Soporte"> Soporte Técnico Postventa: Opcional ($30.000)</div>
           </div>
         </div>
       `;

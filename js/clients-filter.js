@@ -87,12 +87,12 @@ document.addEventListener("DOMContentLoaded", () => {
           
           <div class="client-tech-box">
             <div class="tech-row">
-              <span class="tech-icon">⚡</span>
+              <span class="tech-icon"><img src="assets/icons/3d/zap.png" class="emoji-3d emoji-3d-sm" alt="Sistema"></span>
               <span class="tech-label">Sistema:</span>
               <strong class="tech-val">${client.systemInstalled}</strong>
             </div>
             <div class="tech-row">
-              <span class="tech-icon">🖥️</span>
+              <span class="tech-icon"><img src="assets/icons/3d/package.png" class="emoji-3d emoji-3d-sm" alt="Puestos"></span>
               <span class="tech-label">Puestos:</span>
               <span class="tech-val">${client.hardware}</span>
             </div>
@@ -171,21 +171,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <div class="modal-details-grid">
           <div class="detail-box">
-            <h4>⚡ Sistema Implementado</h4>
+            <h4><img src="assets/icons/3d/zap.png" class="emoji-3d" alt="Sistema"> Sistema Implementado</h4>
             <p><strong>${client.systemInstalled}</strong></p>
             <small>Homologación fiscal ARCA oficial + modo 100% offline</small>
           </div>
           <div class="detail-box">
-            <h4>🖥️ Configuración de Hardware</h4>
+            <h4><img src="assets/icons/3d/package.png" class="emoji-3d" alt="Hardware"> Configuración de Hardware</h4>
             <p>${client.hardware}</p>
             <small>Instalado y configurado en el local por FACTUTEC</small>
           </div>
           <div class="detail-box">
-            <h4>🎯 Clave del Negocio</h4>
+            <h4><img src="assets/icons/3d/gem.png" class="emoji-3d" alt="Clave"> Clave del Negocio</h4>
             <p>${client.highlight}</p>
           </div>
           <div class="detail-box">
-            <h4>⭐️ Calificación del Servicio</h4>
+            <h4><img src="assets/icons/3d/star.png" class="emoji-3d" alt="Calificación"> Calificación del Servicio</h4>
             <div class="modal-stars">${"★".repeat(client.rating)} (5/5)</div>
             <p class="modal-quote">"${client.testimonial}"</p>
           </div>
