@@ -1446,20 +1446,25 @@ button, input, select, textarea {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.5rem;
-  margin-top: 1rem;
+  margin-top: 0.75rem;
 }
 
 .pos-payment-btn {
   background: #1e293b;
-  color: #94a3b8;
+  color: #cbd5e1;
   border: 1px solid #334155;
   border-radius: var(--radius-sm);
-  padding: 0.5rem;
-  font-size: 0.75rem;
+  padding: 0.6rem 0.5rem;
+  font-size: 0.8rem;
   font-weight: 700;
   cursor: pointer;
   text-align: center;
   transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  white-space: nowrap;
 }
 
 .pos-payment-btn:hover {
@@ -1471,6 +1476,7 @@ button, input, select, textarea {
   background: var(--primary);
   color: #ffffff;
   border-color: var(--primary-light);
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.4);
 }
 
 /* Receipt Output (Thermal Printer Simulation) */
@@ -3187,6 +3193,14 @@ button, input, select, textarea {
   }
   .pos-cart-container {
     padding: 1rem;
+  }
+  .pos-payments-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.5rem !important;
+  }
+  .pos-payment-btn {
+    padding: 0.65rem 0.5rem !important;
+    font-size: 0.825rem !important;
   }
 
   /* Clients Showcase Filters */
