@@ -811,9 +811,37 @@ button, input, select, textarea {
   font-size: 1.1rem;
 }
 
-/* Hero Collage Composition (Figma Trend 11) */
+/* Hero App Showcase */
 .hero-collage-wrapper {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-app-frame {
+  position: relative;
+  background: #ffffff;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(203, 213, 225, 0.8);
+  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.15), 0 0 0 1px rgba(15, 23, 42, 0.04);
+  overflow: hidden;
+  line-height: 0;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  width: 100%;
+}
+
+.hero-app-frame:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.2);
+}
+
+.hero-app-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: calc(var(--radius-xl) - 1px);
 }
 
 .collage-main-frame {
