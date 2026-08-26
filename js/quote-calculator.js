@@ -1,5 +1,5 @@
 /**
- * FACTUTEC - Cotizador Oficial de Planes ELEVENTA
+ * FACTUTEC - Cotizador Oficial de Planes FACTUVENTAS
  * 
  * Lista de Precios Oficial:
  * - Básico: $150.000
@@ -24,19 +24,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const PLANS = {
     basico: {
-      name: "ELEVENTA BÁSICO",
+      name: "FACTUVENTAS BÁSICO",
       price: 150000,
       description: "Gestión de inventario, ventas rápidas, cortes de caja, básculas, cajeros y 100% offline. Monocaja.",
       badge: "PAGO ÚNICO: $150.000"
     },
     avanzado_app: {
-      name: "ELEVENTA AVANZADO + APP TELÉFONO",
+      name: "FACTUVENTAS AVANZADO + APP TELÉFONO",
       price: 250000,
       description: "Incluye todo lo del Básico + Sincronización en tiempo real multi-caja, gestión de cajas, mantenimiento centralizado y monitoreo remoto desde la app móvil.",
       badge: "PAGO ÚNICO: $250.000"
     },
     avanzado_app_arca: {
-      name: "ELEVENTA AVANZADO + APP + FACTURACIÓN ARCA",
+      name: "FACTUVENTAS AVANZADO + APP + FACTURACIÓN ARCA",
       price: 400000,
       description: "El paquete más completo. Incluye Básico + Avanzado + App Móvil + Facturación electrónica automática con ARCA (ex AFIP) en cada venta con CAE y QR oficial.",
       badge: "PAGO ÚNICO: $400.000 (MÁS ELEGIDO)"
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           <div class="calc-summary-breakdown">
             <div class="calc-item-line">
-              <span>Licencia Oficial Eleventa:</span>
+              <span>Licencia Oficial FactuVentas:</span>
               <strong>$${planInfo.price.toLocaleString("es-AR")}</strong>
             </div>
 
@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Build WhatsApp message
     if (sendWhatsappBtn) {
-      let msg = `Hola Joel y Emanuel (FACTUTEC)! Estuve usando el cotizador de la web y quiero consultar para congelar el precio de la siguiente versión de ELEVENTA:\n\n`;
+      let msg = `Hola Joel y Emanuel (FACTUTEC)! Estuve usando el cotizador de la web y quiero consultar para congelar el precio de la siguiente versión de FACTUVENTAS:\n\n`;
       msg += `📦 *Versión:* ${planInfo.name} ($${planInfo.price.toLocaleString("es-AR")})\n`;
       msg += `🏷️ *Rubro:* ${businessTypeSelect ? businessTypeSelect.options[businessTypeSelect.selectedIndex].text : "Comercio"}\n`;
       msg += `🖥️ *Cantidad de Puestos:* ${terminals}\n`;

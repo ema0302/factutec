@@ -1,6 +1,6 @@
 /**
  * FACTUTEC - Base de Datos de Clientes y Casos de Éxito
- * Implementaciones de ELEVENTA (Básico, MultiCaja y ARCA) en comercios reales
+ * Implementaciones de FACTUVENTAS (Básico, MultiCaja y ARCA) en comercios reales
  */
 
 const CLIENTS_DATA = [
@@ -12,13 +12,13 @@ const CLIENTS_DATA = [
     logoText: "DCS",
     logoColor: "#1e40af",
     logoBg: "#dbeafe",
-    systemInstalled: "Eleventa Avanzado + Puente Facturación ARCA",
+    systemInstalled: "FactuVentas Avanzado + Puente Facturación ARCA",
     hardware: "3 Puestos en Red + Lectores Láser + Impresoras 80mm",
     location: "San Martín, Mendoza",
     year: "2024",
     highlight: "Sincronización en tiempo real de 3 cajas, +4.500 productos y facturación ARCA automática",
     rating: 5,
-    testimonial: "El sistema Eleventa con la facturación ARCA de FactuTec es un cañón. Las 3 cajas comparten stock al instante y no se traba nunca."
+    testimonial: "El sistema FactuVentas con la facturación ARCA de FactuTec es un cañón. Las 3 cajas comparten stock al instante y no se traba nunca."
   },
   {
     id: "supermercado-el-trebol",
@@ -28,7 +28,7 @@ const CLIENTS_DATA = [
     logoText: "SET",
     logoColor: "#047857",
     logoBg: "#d1fae5",
-    systemInstalled: "Eleventa + Facturación ARCA Automática",
+    systemInstalled: "FactuVentas + Facturación ARCA Automática",
     hardware: "2 Cajas Rápidas + Balanza Digital Systel",
     location: "Junín, Mendoza",
     year: "2023",
@@ -44,7 +44,7 @@ const CLIENTS_DATA = [
     logoText: "FIE",
     logoColor: "#b45309",
     logoBg: "#fef3c7",
-    systemInstalled: "Eleventa Avanzado MultiCaja + Factura A4",
+    systemInstalled: "FactuVentas Avanzado MultiCaja + Factura A4",
     hardware: "Servidor Mostrador + 2 Terminales + Impresora A4",
     location: "Rivadavia, Mendoza",
     year: "2024",
@@ -60,13 +60,13 @@ const CLIENTS_DATA = [
     logoText: "BUM",
     logoColor: "#be185d",
     logoBg: "#fce7f3",
-    systemInstalled: "Eleventa Básico ($200.000)",
+    systemInstalled: "FactuVentas Básico ($150.000)",
     hardware: "1 Puesto Mostrador + Lector de Código de Barras",
     location: "San Martín Centro, Mendoza",
     year: "2024",
     highlight: "Control de inventario de indumentaria, cortes de caja por turno y operación 100% offline",
     rating: 5,
-    testimonial: "Super fácil de usar. Pagamos los $200.000 una sola vez y nos olvidamos para siempre de pagar mensualidades."
+    testimonial: "Super fácil de usar. Pagamos los $150.000 una sola vez y nos olvidamos para siempre de pagar mensualidades."
   },
   {
     id: "corralon-mendoza",
@@ -76,13 +76,13 @@ const CLIENTS_DATA = [
     logoText: "CMM",
     logoColor: "#c2410c",
     logoBg: "#ffedd5",
-    systemInstalled: "Eleventa Avanzado + ARCA + Red de Cajas",
+    systemInstalled: "FactuVentas Avanzado + ARCA + Red de Cajas",
     hardware: "4 Puestos en Red + Router Wi-Fi Comercial + 2 Impresoras",
     location: "Palmira, Mendoza",
     year: "2023",
     highlight: "Red local cableada por FactuTec con facturación electrónica ARCA automática en todas las cajas",
     rating: 5,
-    testimonial: "FactuTec nos hizo no solo la instalación de Eleventa sino todo el cableado de red y configuración de routers."
+    testimonial: "FactuTec nos hizo no solo la instalación de FactuVentas sino todo el cableado de red y configuración de routers."
   },
   {
     id: "pizzeria-donatello",
@@ -92,7 +92,7 @@ const CLIENTS_DATA = [
     logoText: "PRD",
     logoColor: "#b91c1c",
     logoBg: "#fee2e2",
-    systemInstalled: "Eleventa + Facturación ARCA",
+    systemInstalled: "FactuVentas + Facturación ARCA",
     hardware: "PC Mostrador + Impresora Térmica 80mm",
     location: "San Martín, Mendoza",
     year: "2024",
@@ -108,7 +108,7 @@ const CLIENTS_DATA = [
     logoText: "MLA",
     logoColor: "#4338ca",
     logoBg: "#e0e7ff",
-    systemInstalled: "Eleventa MultiCaja + ARCA + Factura A4",
+    systemInstalled: "FactuVentas MultiCaja + ARCA + Factura A4",
     hardware: "5 Cajas en Red + Servidor Dedicado + Backup",
     location: "Godoy Cruz, Mendoza",
     year: "2023",
@@ -124,7 +124,7 @@ const CLIENTS_DATA = [
     logoText: "ASC",
     logoColor: "#059669",
     logoBg: "#ecfdf5",
-    systemInstalled: "Eleventa Básico + Báscula",
+    systemInstalled: "FactuVentas Básico + Báscula",
     hardware: "Caja Principal + Lector Omnidireccional + Balanza",
     location: "Santa Rosa, Mendoza",
     year: "2024",
@@ -140,7 +140,7 @@ const CLIENTS_DATA = [
     logoText: "REA",
     logoColor: "#0f766e",
     logoBg: "#ccfbf1",
-    systemInstalled: "Eleventa Avanzado + Facturación ARCA",
+    systemInstalled: "FactuVentas Avanzado + Facturación ARCA",
     hardware: "2 Puestos de Mostrador + Impresora Fiscal",
     location: "San Martín, Mendoza",
     year: "2023",
@@ -156,7 +156,7 @@ const CLIENTS_DATA = [
     logoText: "VVE",
     logoColor: "#701a75",
     logoBg: "#fae8ff",
-    systemInstalled: "Eleventa Básico ($200.000)",
+    systemInstalled: "FactuVentas Básico ($150.000)",
     hardware: "PC All-in-One + Lector Inalámbrico",
     location: "Rivadavia, Mendoza",
     year: "2024",
@@ -172,7 +172,7 @@ const CLIENTS_DATA = [
     logoText: "LPC",
     logoColor: "#0284c7",
     logoBg: "#e0f2fe",
-    systemInstalled: "Eleventa + Facturación ARCA ($400.000)",
+    systemInstalled: "FactuVentas + Facturación ARCA ($400.000)",
     hardware: "2 Cajas + Lector de Código de Barras + Impresora",
     location: "San Martín, Mendoza",
     year: "2024",
@@ -188,7 +188,7 @@ const CLIENTS_DATA = [
     logoText: "CBE",
     logoColor: "#d97706",
     logoBg: "#fef3c7",
-    systemInstalled: "Eleventa MultiCaja + Red Wi-Fi",
+    systemInstalled: "FactuVentas MultiCaja + Red Wi-Fi",
     hardware: "Terminal Mostrador + Caja Barra + Red de Cajas",
     location: "Junín, Mendoza",
     year: "2024",
