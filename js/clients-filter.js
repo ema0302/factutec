@@ -78,6 +78,14 @@ function initClientsFilter() {
             <span class="client-badge" style="background: ${client.logoBg}; color: ${client.logoColor}">
               ${client.categoryName}
             </span>
+            ${
+              client.photo
+                ? `<span class="client-badge" style="background: rgba(14, 165, 233, 0.12); color: #0284c7; border: 1px solid rgba(14, 165, 233, 0.25); font-weight: 700; display: inline-flex; align-items: center; gap: 0.25rem;">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                    Foto real
+                  </span>`
+                : ""
+            }
             <span class="client-location">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
               ${client.location}
@@ -179,6 +187,25 @@ function initClientsFilter() {
         </div>
 
         <div class="modal-details-grid">
+          ${
+            client.photo
+              ? `
+            <div class="modal-photo-card">
+              <div class="modal-photo-wrapper">
+                <img src="${client.photo}" alt="Instalación en ${client.name}" class="modal-photo-img" loading="lazy">
+                <div class="modal-photo-badge">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                  <span>Instalación Real FACTUTEC</span>
+                </div>
+              </div>
+              <p class="modal-photo-caption">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                ${client.photoCaption || `Instalación y puesta en marcha en ${client.name}`}
+              </p>
+            </div>
+          `
+              : ""
+          }
           <div class="detail-box">
             <h4 style="display: flex; align-items: center; gap: 0.45rem;"><span class="icon-bubble bubble-xs bubble-emerald"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span> Sistema Implementado</h4>
             <p><strong>${client.systemInstalled}</strong></p>

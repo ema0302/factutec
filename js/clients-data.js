@@ -10,6 +10,8 @@ const CLIENTS_DATA = [
     category: "almacenes",
     categoryName: "Comercios & Almacenes",
     logoImage: "assets/images/la-previa-del-emis-logo.png?v=5",
+    photo: "assets/images/la-previa-del-emis-foto.jpg?v=5",
+    photoCaption: "Puesta en marcha e instalación oficial de FactuVentas + Facturación ARCA en el local junto al equipo de FactuTec.",
     logoText: "LPE",
     logoColor: "#db2777",
     logoBg: "#fdf2f8",
