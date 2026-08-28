@@ -159,8 +159,9 @@ function initClientsFilter() {
     const modalBody = document.getElementById("modal-client-content");
     if (modalBody) {
       modalBody.innerHTML = `
-        <div class="modal-header-hero" style="background: linear-gradient(135deg, ${client.logoColor}14, #f8fafc 90%); border-bottom: 1px solid #e2e8f0;">
-          <div class="modal-emblem" style="background: ${client.logoBg}; color: ${client.logoColor}; border-color: ${client.logoColor}40">
+        <div class="card-accent-bar" style="background: ${client.logoColor}; height: 5px; width: 100%;"></div>
+        <div class="modal-header-hero" style="background: linear-gradient(135deg, ${client.logoColor}30 0%, ${client.logoBg} 50%, #f1f5f9 100%); border-bottom: 1px solid #e2e8f0;">
+          <div class="modal-emblem" style="background: ${client.logoBg}; color: ${client.logoColor}; border-color: ${client.logoColor}50; box-shadow: 0 4px 16px ${client.logoColor}35;">
             ${
               client.logoImage
                 ? `<img src="${client.logoImage}" alt="${client.name}">`
@@ -168,11 +169,11 @@ function initClientsFilter() {
             }
           </div>
           <div>
-            <span class="modal-tag" style="background: ${client.logoColor}; color: #ffffff; font-weight: 700; box-shadow: 0 2px 8px ${client.logoColor}35;">${client.categoryName}</span>
+            <span class="modal-tag" style="background: ${client.logoColor}; color: #ffffff; font-weight: 700; box-shadow: 0 2px 8px ${client.logoColor}40;">${client.categoryName}</span>
             <h2 class="modal-client-title" style="color: #0f172a; margin: 0.35rem 0 0.35rem; font-weight: 800; font-size: 1.6rem;">${client.name}</h2>
-            <p class="modal-location" style="color: #475569; font-weight: 600; font-size: 0.9rem;">
+            <p class="modal-location" style="color: #334155; font-weight: 600; font-size: 0.9rem;">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-              ${client.location} • <span style="color: #0284c7; font-weight: 700;">Cliente desde ${client.year}</span>
+              ${client.location} • <span style="color: #0369a1; font-weight: 700;">Cliente desde ${client.year}</span>
             </p>
           </div>
         </div>
