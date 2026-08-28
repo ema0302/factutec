@@ -632,7 +632,10 @@
           </div>
 
           <div class="calc-form-group">
-            <label for="calc-terminals-count">3. Cantidad de Cajas / Puestos:</label>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <label for="calc-terminals-count" style="margin-bottom: 0;">3. Cantidad de Cajas / Puestos:</label>
+              <span id="calc-terminals-hint" style="font-weight: 700;"></span>
+            </div>
             <select id="calc-terminals-count" class="calc-select">
               <option value="1">1 Puesto de Caja</option>
               <option value="2">2 Puestos de Caja en Red</option>

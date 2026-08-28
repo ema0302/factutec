@@ -1714,6 +1714,15 @@ button, input, select, textarea {
   box-shadow: var(--shadow-sm);
   text-overflow: ellipsis;
   overflow: hidden;
+  transition: all var(--transition-fast);
+}
+
+.calc-select:disabled {
+  background-color: #f1f5f9;
+  color: #64748b;
+  cursor: not-allowed;
+  border-color: #cbd5e1;
+  opacity: 0.9;
 }
 
 .calc-addons-grid {

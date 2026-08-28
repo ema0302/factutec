@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const planSelector = document.getElementById("calc-plan-type");
   const businessTypeSelect = document.getElementById("calc-business-type");
   const terminalsCountSelect = document.getElementById("calc-terminals-count");
+  const terminalsHint = document.getElementById("calc-terminals-hint");
   const addonCheckboxes = document.querySelectorAll(".calc-addon-check");
   const summaryBox = document.getElementById("calc-summary-output");
   const sendWhatsappBtn = document.getElementById("calc-send-whatsapp-btn");
@@ -49,6 +50,24 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!planSelector) return;
 
     const selectedPlanKey = planSelector.value || "avanzado_app_arca";
+    const isBasico = selectedPlanKey === "basico";
+
+    // En FACTUVENTAS BÁSICO la cantidad de cajas es siempre 1 y se bloquea el selector
+    if (terminalsCountSelect) {
+      if (isBasico) {
+        terminalsCountSelect.value = "1";
+        terminalsCountSelect.disabled = true;
+        if (terminalsHint) {
+          terminalsHint.innerHTML = '<span style="color: #1e40af; background: #dbeafe; font-size: 0.75rem; padding: 2px 8px; border-radius: 6px;">Monocaja (1 caja fija)</span>';
+        }
+      } else {
+        terminalsCountSelect.disabled = false;
+        if (terminalsHint) {
+          terminalsHint.innerHTML = '<span style="color: #047857; background: #ecfdf5; font-size: 0.75rem; padding: 2px 8px; border-radius: 6px;">Multi-caja configurable</span>';
+        }
+      }
+    }
+
     const planInfo = PLANS[selectedPlanKey] || PLANS.avanzado_app_arca;
     const terminals = parseInt(terminalsCountSelect ? terminalsCountSelect.value : "1", 10) || 1;
 
