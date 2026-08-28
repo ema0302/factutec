@@ -47,6 +47,8 @@ const CLIENTS_DATA = [
     name: "Distribuidora Nahuel",
     category: "mayoristas",
     categoryName: "Mayoristas & Distribuidoras",
+    photo: "assets/images/distribuidora-nahuel-foto.jpg?v=5",
+    photoCaption: "Instalación y puesta a punto de terminal de mostrador y sistema FactuVentas en Distribuidora Nahuel con el equipo de FactuTec.",
     logoText: "DN",
     logoColor: "#1d4ed8",
     logoBg: "#eff6ff",
