@@ -39,20 +39,20 @@ const CLIENTS_DATA = [
     testimonial: "Antes anotábamos todo en libretas y el stock era un lío. Con FactuVentas que nos configuraron Joel y Emanuel ahora tenemos el inventario al día y cobramos en segundos. Un cambio abismal para nuestro negocio."
   },
   {
-    id: "distribuidora-cuyo",
-    name: "Distribuidora Cuyo Sur",
+    id: "distribuidora-nahuel",
+    name: "Distribuidora Nahuel",
     category: "mayoristas",
     categoryName: "Mayoristas & Distribuidoras",
-    logoText: "DCS",
-    logoColor: "#1e40af",
-    logoBg: "#dbeafe",
-    systemInstalled: "FactuVentas Avanzado + Puente Facturación ARCA",
-    hardware: "3 Puestos en Red + Lectores Láser + Impresoras 80mm",
+    logoText: "DN",
+    logoColor: "#1d4ed8",
+    logoBg: "#eff6ff",
+    systemInstalled: "FactuVentas Avanzado ($250.000)",
+    hardware: "1 Puesto de Caja Rápida",
     location: "San Martín, Mendoza",
-    year: "2024",
-    highlight: "Sincronización en tiempo real de 3 cajas, +4.500 productos y facturación ARCA automática",
+    year: "2026",
+    highlight: "Control masivo de inventario, listas de precios por bulto/volumen y despacho ágil de mercadería",
     rating: 5,
-    testimonial: "El sistema FactuVentas con la facturación ARCA de FactuTec es un cañón. Las 3 cajas comparten stock al instante y no se traba nunca."
+    testimonial: "Para una distribuidora el control de stock y los precios mayoristas son clave. FactuVentas nos facilitó el despacho de pedidos y la atención en mostrador. El soporte técnico de FactuTec es de primera."
   },
   {
     id: "supermercado-el-trebol",
