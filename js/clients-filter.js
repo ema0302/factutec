@@ -159,8 +159,8 @@ function initClientsFilter() {
     const modalBody = document.getElementById("modal-client-content");
     if (modalBody) {
       modalBody.innerHTML = `
-        <div class="modal-header-hero" style="background: linear-gradient(135deg, ${client.logoColor}15, ${client.logoBg})">
-          <div class="modal-emblem" style="background: ${client.logoBg}; color: ${client.logoColor}; border-color: ${client.logoColor}">
+        <div class="modal-header-hero" style="background: linear-gradient(135deg, ${client.logoColor}14, #f8fafc 90%); border-bottom: 1px solid #e2e8f0;">
+          <div class="modal-emblem" style="background: ${client.logoBg}; color: ${client.logoColor}; border-color: ${client.logoColor}40">
             ${
               client.logoImage
                 ? `<img src="${client.logoImage}" alt="${client.name}">`
@@ -168,11 +168,11 @@ function initClientsFilter() {
             }
           </div>
           <div>
-            <span class="modal-tag" style="background: ${client.logoColor}; color: #fff">${client.categoryName}</span>
-            <h2 class="modal-client-title">${client.name}</h2>
-            <p class="modal-location">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-              ${client.location} • Cliente desde ${client.year}
+            <span class="modal-tag" style="background: ${client.logoColor}; color: #ffffff; font-weight: 700; box-shadow: 0 2px 8px ${client.logoColor}35;">${client.categoryName}</span>
+            <h2 class="modal-client-title" style="color: #0f172a; margin: 0.35rem 0 0.35rem; font-weight: 800; font-size: 1.6rem;">${client.name}</h2>
+            <p class="modal-location" style="color: #475569; font-weight: 600; font-size: 0.9rem;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              ${client.location} • <span style="color: #0284c7; font-weight: 700;">Cliente desde ${client.year}</span>
             </p>
           </div>
         </div>
