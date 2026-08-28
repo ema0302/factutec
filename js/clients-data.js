@@ -22,6 +22,23 @@ const CLIENTS_DATA = [
     testimonial: "Excelente el sistema FactuVentas con facturación ARCA que nos instalaron Joel y Emanuel. En hora pico cobramos rapidísimo y todos los comprobantes quedan registrados al instante sin complicaciones."
   },
   {
+    id: "kema-importaciones",
+    name: "Kema Importaciones",
+    category: "servicios",
+    categoryName: "Tecnología & Importaciones",
+    logoImage: "assets/images/kema-importaciones-logo.png?v=5",
+    logoText: "KEM",
+    logoColor: "#0d9488",
+    logoBg: "#f0fdfa",
+    systemInstalled: "FactuVentas Avanzado ($250.000)",
+    hardware: "1 Puesto de Caja Rápida",
+    location: "Junín, Mendoza",
+    year: "2026",
+    highlight: "Digitalización total: pasaron de registrar ventas y stock en papel a la velocidad del sistema FactuVentas",
+    rating: 5,
+    testimonial: "Antes anotábamos todo en libretas y el stock era un lío. Con FactuVentas que nos configuraron Joel y Emanuel ahora tenemos el inventario al día y cobramos en segundos. Un cambio abismal para nuestro negocio."
+  },
+  {
     id: "distribuidora-cuyo",
     name: "Distribuidora Cuyo Sur",
     category: "mayoristas",
@@ -132,22 +149,6 @@ const CLIENTS_DATA = [
     highlight: "Sincronización multi-caja en tiempo real con facturación masiva ARCA",
     rating: 5,
     testimonial: "Emanuel y Joel nos armaron la red completa. El monitoreo remoto desde el celular nos permite ver las ventas en vivo."
-  },
-  {
-    id: "repuestos-este",
-    name: "Repuestos del Este Automotor",
-    category: "servicios",
-    categoryName: "Servicios & Repuestos",
-    logoText: "REA",
-    logoColor: "#0f766e",
-    logoBg: "#ccfbf1",
-    systemInstalled: "FactuVentas Avanzado + Facturación ARCA",
-    hardware: "2 Puestos de Mostrador + Impresora Fiscal",
-    location: "San Martín, Mendoza",
-    year: "2023",
-    highlight: "Control de stock de miles de repuestos y facturación electrónica inmediata",
-    rating: 5,
-    testimonial: "Encontramos repuestos en segundos y cada venta queda registrada en ARCA sin pasos extras."
   },
   {
     id: "cerveceria-artesanal",
