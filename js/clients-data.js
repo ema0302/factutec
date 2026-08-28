@@ -29,6 +29,8 @@ const CLIENTS_DATA = [
     category: "servicios",
     categoryName: "Tecnología & Importaciones",
     logoImage: "assets/images/kema-importaciones-logo.png?v=5",
+    photo: "assets/images/kema-importaciones-foto.jpg?v=5",
+    photoCaption: "Capacitación, instalación y puesta en marcha de FactuVentas Avanzado en el local de Kema Importaciones junto al equipo de FactuTec.",
     logoText: "KEM",
     logoColor: "#0d9488",
     logoBg: "#f0fdfa",
