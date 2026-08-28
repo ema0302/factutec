@@ -109,9 +109,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const statsGrid = document.querySelector(".stats-grid");
   if (statsGrid) statsGrid.classList.add("reveal-stagger");
 
-  const posSimWrapper = document.querySelector(".pos-sim-wrapper");
-  if (posSimWrapper) posSimWrapper.classList.add("reveal-scale");
-
   const clientsGrid = document.getElementById("clients-grid");
   if (clientsGrid) clientsGrid.classList.add("reveal-stagger");
 
@@ -159,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
   revealElements.forEach((el) => revealObserver.observe(el));
 
   // 5. Spotlight Mouse Glow FX on Bento Cards
-  const glowCards = document.querySelectorAll(".bento-card, .client-card, .pos-terminal-box, .stat-card");
+  const glowCards = document.querySelectorAll(".bento-card, .client-card, .calculator-wrapper, .stat-card");
   glowCards.forEach((card) => {
     card.addEventListener("mousemove", (e) => {
       const rect = card.getBoundingClientRect();
