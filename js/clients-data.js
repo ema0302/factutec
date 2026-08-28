@@ -5,6 +5,23 @@
 
 const CLIENTS_DATA = [
   {
+    id: "la-previa-del-emis",
+    name: "La Previa del Emi´s",
+    category: "almacenes",
+    categoryName: "Comercios & Almacenes",
+    logoImage: "assets/images/la-previa-del-emis-logo.jpg",
+    logoText: "LPE",
+    logoColor: "#ec4899",
+    logoBg: "#0f172a",
+    systemInstalled: "FactuVentas + Facturación Electrónica ARCA",
+    hardware: "1 Puesto de Caja Rápida",
+    location: "Rivadavia, Mendoza",
+    year: "2026",
+    highlight: "Necesidad de registrar ventas en ARCA con emisión fiscal automática y rápida en caja",
+    rating: 5,
+    testimonial: "Excelente el sistema FactuVentas con facturación ARCA que nos instalaron Joel y Emanuel. En hora pico cobramos rapidísimo y todos los comprobantes quedan registrados al instante sin complicaciones."
+  },
+  {
     id: "distribuidora-cuyo",
     name: "Distribuidora Cuyo Sur",
     category: "mayoristas",
@@ -117,22 +134,6 @@ const CLIENTS_DATA = [
     testimonial: "Emanuel y Joel nos armaron la red completa. El monitoreo remoto desde el celular nos permite ver las ventas en vivo."
   },
   {
-    id: "autoservicio-san-cayetano",
-    name: "Autoservicio San Cayetano",
-    category: "almacenes",
-    categoryName: "Comercios & Almacenes",
-    logoText: "ASC",
-    logoColor: "#059669",
-    logoBg: "#ecfdf5",
-    systemInstalled: "FactuVentas Básico + Báscula",
-    hardware: "Caja Principal + Lector Omnidireccional + Balanza",
-    location: "Santa Rosa, Mendoza",
-    year: "2024",
-    highlight: "Control de entradas/salidas de mercadería y gestión de permisos por cajero",
-    rating: 5,
-    testimonial: "Nos ordenó las cajas por completo. El soporte por WhatsApp ante cualquier duda responde al toque."
-  },
-  {
     id: "repuestos-este",
     name: "Repuestos del Este Automotor",
     category: "servicios",
@@ -147,38 +148,6 @@ const CLIENTS_DATA = [
     highlight: "Control de stock de miles de repuestos y facturación electrónica inmediata",
     rating: 5,
     testimonial: "Encontramos repuestos en segundos y cada venta queda registrada en ARCA sin pasos extras."
-  },
-  {
-    id: "vinoteca-valle-este",
-    name: "Vinoteca Valle del Este",
-    category: "almacenes",
-    categoryName: "Comercios & Almacenes",
-    logoText: "VVE",
-    logoColor: "#701a75",
-    logoBg: "#fae8ff",
-    systemInstalled: "FactuVentas Básico ($150.000)",
-    hardware: "PC All-in-One + Lector Inalámbrico",
-    location: "Rivadavia, Mendoza",
-    year: "2024",
-    highlight: "Manejo de múltiples listas de precios y promociones",
-    rating: 5,
-    testimonial: "Muy estético y super fácil de aprender. En una tarde ya estábamos vendiendo."
-  },
-  {
-    id: "libreria-san-martin",
-    name: "Librería & Papelería Central",
-    category: "almacenes",
-    categoryName: "Comercios & Almacenes",
-    logoText: "LPC",
-    logoColor: "#0284c7",
-    logoBg: "#e0f2fe",
-    systemInstalled: "FactuVentas + Facturación ARCA ($400.000)",
-    hardware: "2 Cajas + Lector de Código de Barras + Impresora",
-    location: "San Martín, Mendoza",
-    year: "2024",
-    highlight: "Factura electrónica ARCA automática y actualización de precios por Excel",
-    rating: 5,
-    testimonial: "La actualización de precios por Excel y la facturación ARCA automática nos ahorran horas de laburo."
   },
   {
     id: "cerveceria-artesanal",

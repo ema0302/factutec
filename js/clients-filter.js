@@ -68,7 +68,11 @@ document.addEventListener("DOMContentLoaded", () => {
         <!-- Header: Emblem Logo + Category -->
         <div class="client-card-header">
           <div class="client-emblem" style="background: ${client.logoBg}; color: ${client.logoColor}; border-color: ${client.logoColor}30">
-            <span>${client.logoText}</span>
+            ${
+              client.logoImage
+                ? `<img src="${client.logoImage}" alt="${client.name}">`
+                : `<span>${client.logoText}</span>`
+            }
           </div>
           <div class="client-meta">
             <span class="client-badge" style="background: ${client.logoBg}; color: ${client.logoColor}">
@@ -157,7 +161,11 @@ document.addEventListener("DOMContentLoaded", () => {
       modalBody.innerHTML = `
         <div class="modal-header-hero" style="background: linear-gradient(135deg, ${client.logoColor}15, ${client.logoBg})">
           <div class="modal-emblem" style="background: ${client.logoBg}; color: ${client.logoColor}; border-color: ${client.logoColor}">
-            ${client.logoText}
+            ${
+              client.logoImage
+                ? `<img src="${client.logoImage}" alt="${client.name}">`
+                : client.logoText
+            }
           </div>
           <div>
             <span class="modal-tag" style="background: ${client.logoColor}; color: #fff">${client.categoryName}</span>
