@@ -9,7 +9,7 @@ const CLIENTS_DATA = [
     name: "La Previa del Emi´s",
     category: "almacenes",
     categoryName: "Comercios & Almacenes",
-    logoImage: "assets/images/la-previa-del-emis-logo.jpg",
+    logoImage: "assets/images/la-previa-del-emis-logo.png?v=5",
     logoText: "LPE",
     logoColor: "#ec4899",
     logoBg: "#0f172a",
