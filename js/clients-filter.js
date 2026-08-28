@@ -3,7 +3,7 @@
  * Inspirado en KeySistemas + Tarjetas Collage Figma 2026
  */
 
-document.addEventListener("DOMContentLoaded", () => {
+function initClientsFilter() {
   const clientsGrid = document.getElementById("clients-grid");
   const filterPills = document.querySelectorAll(".client-filter-pill");
   const searchInput = document.getElementById("client-search-input");
@@ -237,4 +237,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initial render
   renderClients();
-});
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initClientsFilter);
+} else {
+  initClientsFilter();
+}
