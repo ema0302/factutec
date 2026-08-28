@@ -44,13 +44,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  const EXTRA_TERMINAL_PRICE = 35000; // Por puesto de red adicional más allá de 2
-
   function calculateQuote() {
     if (!planSelector) return;
 
     const selectedPlanKey = planSelector.value || "avanzado_app_arca";
     const isBasico = selectedPlanKey === "basico";
+    const isArca = selectedPlanKey === "avanzado_app_arca";
+    const extraPerTerminal = isArca ? 80000 : 50000;
 
     // En FACTUVENTAS BÁSICO la cantidad de cajas es siempre 1 y se bloquea el selector
     if (terminalsCountSelect) {
@@ -58,25 +58,26 @@ document.addEventListener("DOMContentLoaded", () => {
         terminalsCountSelect.value = "1";
         terminalsCountSelect.disabled = true;
         if (terminalsHint) {
-          terminalsHint.innerHTML = '<span style="color: #1e40af; background: #dbeafe; font-size: 0.75rem; padding: 2px 8px; border-radius: 6px;">Monocaja (1 caja fija)</span>';
+          terminalsHint.innerHTML = '<span style="color: #1e40af; background: #dbeafe; font-size: 0.75rem; padding: 2px 8px; border-radius: 6px;">Monocaja (1 puesto fijo)</span>';
         }
       } else {
         terminalsCountSelect.disabled = false;
         if (terminalsHint) {
-          terminalsHint.innerHTML = '<span style="color: #047857; background: #ecfdf5; font-size: 0.75rem; padding: 2px 8px; border-radius: 6px;">Multi-caja configurable</span>';
+          if (isArca) {
+            terminalsHint.innerHTML = '<span style="color: #047857; background: #ecfdf5; font-size: 0.75rem; padding: 2px 8px; border-radius: 6px;">+$80.000 por caja extra (con ARCA)</span>';
+          } else {
+            terminalsHint.innerHTML = '<span style="color: #6d28d9; background: #f5f3ff; font-size: 0.75rem; padding: 2px 8px; border-radius: 6px;">+$50.000 por caja extra</span>';
+          }
         }
       }
     }
 
     const planInfo = PLANS[selectedPlanKey] || PLANS.avanzado_app_arca;
     const terminals = parseInt(terminalsCountSelect ? terminalsCountSelect.value : "1", 10) || 1;
+    const extraTerminalsCount = (!isBasico && terminals > 1) ? (terminals - 1) : 0;
+    const extraTerminalsTotal = extraTerminalsCount * extraPerTerminal;
 
-    let subtotal = planInfo.price;
-
-    // Si es un plan avanzado con más de 2 terminales en red
-    if ((selectedPlanKey === "avanzado_app" || selectedPlanKey === "avanzado_app_arca") && terminals > 2) {
-      subtotal += (terminals - 2) * EXTRA_TERMINAL_PRICE;
-    }
+    let subtotal = planInfo.price + extraTerminalsTotal;
 
     const selectedAddons = [];
     addonCheckboxes.forEach((chk) => {
@@ -106,16 +107,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
           <div class="calc-summary-breakdown">
             <div class="calc-item-line">
-              <span>Licencia Oficial FactuVentas:</span>
+              <span>Licencia Oficial FactuVentas (1er puesto):</span>
               <strong>$${planInfo.price.toLocaleString("es-AR")}</strong>
             </div>
 
             ${
-              (selectedPlanKey === "avanzado_app" || selectedPlanKey === "avanzado_app_arca") && terminals > 2
+              extraTerminalsCount > 0
                 ? `
             <div class="calc-item-line">
-              <span>${terminals - 2} Caja(s) Adicional(es) en Red:</span>
-              <strong>$${((terminals - 2) * EXTRA_TERMINAL_PRICE).toLocaleString("es-AR")}</strong>
+              <span>+ ${extraTerminalsCount} Caja(s) Adicional(es) ($${extraPerTerminal.toLocaleString("es-AR")} c/u):</span>
+              <strong>+$${extraTerminalsTotal.toLocaleString("es-AR")}</strong>
             </div>
             `
                 : ""
@@ -161,7 +162,11 @@ document.addEventListener("DOMContentLoaded", () => {
       let msg = `Hola Joel y Emanuel (FACTUTEC)! Estuve usando el cotizador de la web y quiero consultar para congelar el precio de la siguiente versión de FACTUVENTAS:\n\n`;
       msg += `📦 *Versión:* ${planInfo.name} ($${planInfo.price.toLocaleString("es-AR")})\n`;
       msg += `🏷️ *Rubro:* ${businessTypeSelect ? businessTypeSelect.options[businessTypeSelect.selectedIndex].text : "Comercio"}\n`;
-      msg += `🖥️ *Cantidad de Puestos:* ${terminals}\n`;
+      msg += `🖥️ *Cantidad de Puestos:* ${terminals} ${terminals === 1 ? "Puesto de Caja" : "Cajas en Red"}`;
+      if (extraTerminalsCount > 0) {
+        msg += ` (+${extraTerminalsCount} caja(s) extra: +$${extraTerminalsTotal.toLocaleString("es-AR")})`;
+      }
+      msg += `\n`;
       if (selectedAddons.length > 0) {
         msg += `⚙️ *Adicionales / Servicios Opcionales:*\n`;
         selectedAddons.forEach((a) => {
