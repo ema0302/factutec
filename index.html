@@ -460,7 +460,7 @@
 
       <div class="bento-grid">
         <!-- Adicional 1: Factura Tamaño A4 -->
-        <div class="bento-card tilt-card">
+        <div class="bento-card tilt-card" style="border: 2px solid #bfdbfe;">
           <div class="icon-bubble bubble-md bubble-blue" style="margin-bottom: 1rem;">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
           </div>
@@ -469,9 +469,15 @@
           <p class="bento-text">
             Permite imprimir facturas en hoja A4 y generar presupuestos / órdenes de compra formales para empresas, corralones, constructoras y mayoristas.
           </p>
-          <a href="https://wa.me/5492634588805?text=Hola%20Joel%20y%20Emanuel!%20Quiero%20consultar%20precio%20del%20módulo%20de%20Factura%20Tamaño%20A4" target="_blank" class="btn btn-secondary btn-sm" style="margin-top: auto;">
-            Consultar Precio
-          </a>
+          <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid #e2e8f0;">
+            <div>
+              <span style="font-size: 1.35rem; font-weight: 900; font-family: var(--font-display); color: #1e40af;">$80.000</span>
+              <small style="display: block; font-size: 0.75rem; color: #64748b; font-weight: 700;">pago único</small>
+            </div>
+            <a href="https://wa.me/5492634588805?text=Hola%20Joel%20y%20Emanuel!%20Quiero%20pedir%20el%20módulo%20de%20Factura%20Tamaño%20A4%20para%20Órdenes%20de%20Compra%20($80.000)" target="_blank" class="btn btn-secondary btn-sm">
+              Pedir Módulo
+            </a>
+          </div>
         </div>
 
         <!-- Adicional 2: Instalación de Impresoras -->
@@ -554,19 +560,16 @@
         <div class="badge-pill orange">PORTFOLIO & CASOS DE ÉXITO</div>
         <h2 class="section-title">Comercios que ya usan FACTUVENTAS con FACTUTEC</h2>
         <p class="section-subtitle">
-          Más de 10 negocios en Mendoza y Argentina equipados con nuestro sistema de cobro, stock y facturación ARCA.
+          Instalaciones reales en Mendoza equipadas con nuestro sistema de cobro, inventario y facturación electrónica ARCA.
         </p>
       </div>
 
       <!-- Rubros Filter Pills -->
       <div class="clients-filter-bar">
         <button class="client-filter-pill active" data-category="todos">Todos los Rubros</button>
-        <button class="client-filter-pill" data-category="almacenes">Almacenes & Supermercados</button>
+        <button class="client-filter-pill" data-category="almacenes">Comercios & Almacenes</button>
+        <button class="client-filter-pill" data-category="servicios">Tecnología & Importaciones</button>
         <button class="client-filter-pill" data-category="mayoristas">Mayoristas & Distribuidoras</button>
-        <button class="client-filter-pill" data-category="ferreterias">Ferreterías & Corralones</button>
-        <button class="client-filter-pill" data-category="indumentaria">Indumentaria & Calzado</button>
-        <button class="client-filter-pill" data-category="gastronomia">Gastronomía & Bares</button>
-        <button class="client-filter-pill" data-category="servicios">Tecnología & Servicios</button>
       </div>
 
       <!-- Search Box with Results Counter -->
@@ -577,7 +580,7 @@
 
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
         <span style="font-size: 0.9rem; color: #64748b; font-weight: 600;">Comercios activos verificados:</span>
-        <span class="badge-pill" id="clients-count-badge">10 clientes</span>
+        <span class="badge-pill" id="clients-count-badge">3 clientes</span>
       </div>
 
       <!-- Clients Cards Grid -->
@@ -657,8 +660,8 @@
               </label>
 
               <label class="calc-addon-label">
-                <input type="checkbox" class="calc-addon-check" data-name="Módulo Factura A4 Órdenes de Compra" data-price="45000">
-                <span style="display: inline-flex; align-items: center; gap: 0.5rem;"><span class="icon-bubble bubble-xs bubble-blue"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path></svg></span> Factura Tamaño A4 para Órdenes de Compra</span>
+                <input type="checkbox" class="calc-addon-check" data-name="Módulo Factura A4 Órdenes de Compra ($80.000)" data-price="80000">
+                <span style="display: inline-flex; align-items: center; gap: 0.5rem;"><span class="icon-bubble bubble-xs bubble-blue"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path></svg></span> Factura Tamaño A4 para Órdenes de Compra ($80.000)</span>
               </label>
 
               <label class="calc-addon-label">
@@ -1090,9 +1093,9 @@
   </footer>
 
   <!-- Scripts with cache busting -->
-  <script src="js/clients-data.js?v=190"></script>
-  <script src="js/clients-filter.js?v=190"></script>
-  <script src="js/quote-calculator.js?v=190"></script>
-  <script src="js/app.js?v=190"></script>
+  <script src="js/clients-data.js?v=220"></script>
+  <script src="js/clients-filter.js?v=220"></script>
+  <script src="js/quote-calculator.js?v=220"></script>
+  <script src="js/app.js?v=220"></script>
 </body>
 </html>
