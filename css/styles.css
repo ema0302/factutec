@@ -1821,12 +1821,12 @@ button, input, select, textarea {
 
 .calc-addon-label {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.75rem;
   background: #ffffff;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  padding: 0.75rem 1rem;
+  padding: 0.85rem 1rem;
   cursor: pointer;
   transition: all var(--transition-fast);
   font-size: 0.875rem;
@@ -1842,19 +1842,36 @@ button, input, select, textarea {
   background: #eff6ff;
 }
 
-.calc-addon-label span {
+.calc-addon-label input.calc-addon-check {
+  width: 1.15rem;
+  height: 1.15rem;
+  min-width: 1.15rem;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.calc-addon-label .icon-bubble {
+  flex-shrink: 0 !important;
+  margin-top: 0.05rem;
+}
+
+.calc-addon-label .calc-addon-text {
   flex: 1;
   min-width: 0;
   word-break: break-word;
   overflow-wrap: anywhere;
   line-height: 1.35;
+  color: #1e293b;
 }
 
-.calc-addon-label input {
-  width: 1.15rem;
-  height: 1.15rem;
-  flex-shrink: 0;
-  accent-color: var(--primary);
+.calc-addon-label .addon-subtext {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #64748b;
+  margin-top: 0.15rem;
 }
 
 /* Quote Summary Box */
