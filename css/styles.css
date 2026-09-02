@@ -550,6 +550,12 @@ button, input, select, textarea {
   border-color: #a7f3d0;
 }
 
+.badge-pill.purple {
+  background: #f5f3ff;
+  color: #7c3aed;
+  border-color: #ddd6fe;
+}
+
 /* --- 6.1. Modern Duotone Glass Icon Bubbles Design System --- */
 .icon-bubble {
   display: inline-flex !important;
