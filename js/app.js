@@ -64,30 +64,44 @@ document.addEventListener("DOMContentLoaded", () => {
   const mobileOverlay = document.getElementById("mobile-overlay");
   const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
 
-  function openMobileMenu() {
+  function openMobileMenu(pushHistory = true) {
     if (!mobileDrawer || !mobileOverlay) return;
     mobileDrawer.classList.add("open");
     mobileOverlay.classList.add("active");
     document.documentElement.classList.add("modal-open");
     document.body.classList.add("modal-open");
     document.body.style.overflow = "hidden";
+
+    if (pushHistory) {
+      window.history.pushState({ factutecModal: "mobile-menu" }, "", window.location.href);
+    }
   }
 
-  function closeMobileMenu() {
-    if (!mobileDrawer || !mobileOverlay) return;
+  function closeMobileMenu(fromPopstate = false) {
+    if (!mobileDrawer || !mobileOverlay || !mobileDrawer.classList.contains("open")) return;
     mobileDrawer.classList.remove("open");
     mobileOverlay.classList.remove("active");
     document.documentElement.classList.remove("modal-open");
     document.body.classList.remove("modal-open");
     document.body.style.overflow = "";
+
+    if (!fromPopstate && window.history.state?.factutecModal === "mobile-menu") {
+      window.history.back();
+    }
   }
 
-  if (mobileMenuBtn) mobileMenuBtn.addEventListener("click", openMobileMenu);
-  if (mobileMenuClose) mobileMenuClose.addEventListener("click", closeMobileMenu);
-  if (mobileOverlay) mobileOverlay.addEventListener("click", closeMobileMenu);
+  if (mobileMenuBtn) mobileMenuBtn.addEventListener("click", () => openMobileMenu(true));
+  if (mobileMenuClose) mobileMenuClose.addEventListener("click", () => closeMobileMenu(false));
+  if (mobileOverlay) mobileOverlay.addEventListener("click", () => closeMobileMenu(false));
 
   mobileNavLinks.forEach((link) => {
-    link.addEventListener("click", closeMobileMenu);
+    link.addEventListener("click", () => closeMobileMenu(false));
+  });
+
+  window.addEventListener("popstate", (e) => {
+    if (mobileDrawer && mobileDrawer.classList.contains("open") && e.state?.factutecModal !== "mobile-menu") {
+      closeMobileMenu(true);
+    }
   });
 
   // 3. Sticky Navbar on Scroll

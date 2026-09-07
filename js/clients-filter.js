@@ -195,7 +195,7 @@ function initClientsFilter() {
   const lightboxCloseBtn = document.getElementById("lightbox-close-button");
   const lightboxBackdrop = document.getElementById("lightbox-backdrop");
 
-  function openPhotoLightbox(src, title, caption) {
+  function openPhotoLightbox(src, title, caption, pushHistory = true) {
     const lightboxImg = document.getElementById("lightbox-full-img");
     const lightboxTitle = document.getElementById("lightbox-client-title");
     const lightboxCaption = document.getElementById("lightbox-caption-text");
@@ -210,13 +210,21 @@ function initClientsFilter() {
     lightboxModal.classList.add("active");
     lightboxModal.setAttribute("aria-hidden", "false");
     lockScroll();
+
+    if (pushHistory) {
+      window.history.pushState({ factutecModal: "photo-lightbox" }, "", window.location.href);
+    }
   }
 
-  function closePhotoLightbox() {
-    if (!lightboxModal) return;
+  function closePhotoLightbox(fromPopstate = false) {
+    if (!lightboxModal || !lightboxModal.classList.contains("active")) return;
     lightboxModal.classList.remove("active");
     lightboxModal.setAttribute("aria-hidden", "true");
     unlockScroll();
+
+    if (!fromPopstate && window.history.state?.factutecModal === "photo-lightbox") {
+      window.history.back();
+    }
   }
 
   if (lightboxCloseBtn) {
@@ -236,7 +244,7 @@ function initClientsFilter() {
   }
 
   // Modal open function
-  function openClientModal(clientId) {
+  function openClientModal(clientId, pushHistory = true) {
     const client = CLIENTS_DATA.find((c) => c.id === clientId);
     if (!client || !clientModal) return;
 
@@ -337,22 +345,34 @@ function initClientsFilter() {
 
     clientModal.classList.add("active");
     lockScroll();
+
+    if (pushHistory) {
+      window.history.pushState(
+        { factutecModal: "client-detail", clientId: clientId },
+        "",
+        window.location.href
+      );
+    }
   }
 
   // Close modal
-  function closeModal() {
-    if (!clientModal) return;
+  function closeModal(fromPopstate = false) {
+    if (!clientModal || !clientModal.classList.contains("active")) return;
     clientModal.classList.remove("active");
     unlockScroll();
+
+    if (!fromPopstate && window.history.state?.factutecModal === "client-detail") {
+      window.history.back();
+    }
   }
 
   if (modalCloseBtn) {
-    modalCloseBtn.addEventListener("click", closeModal);
+    modalCloseBtn.addEventListener("click", () => closeModal(false));
   }
 
   if (clientModal) {
     clientModal.addEventListener("click", (e) => {
-      if (e.target === clientModal) closeModal();
+      if (e.target === clientModal) closeModal(false);
     });
 
     // Prevent background scrolling on backdrop wheel
@@ -410,6 +430,25 @@ function initClientsFilter() {
       if (clientModal && clientModal.classList.contains("active")) {
         closeModal();
       }
+    }
+  });
+
+  // Handle mobile Back gesture/button and browser navigation
+  window.addEventListener("popstate", (e) => {
+    const targetModal = e.state?.factutecModal;
+
+    // 1. If photo lightbox is open
+    if (lightboxModal && lightboxModal.classList.contains("active")) {
+      closePhotoLightbox(true);
+      // If we popped back into the client-detail modal, keep client modal open
+      if (targetModal === "client-detail") {
+        return;
+      }
+    }
+
+    // 2. If client detail modal is open and we navigated back to base
+    if (clientModal && clientModal.classList.contains("active") && targetModal !== "client-detail") {
+      closeModal(true);
     }
   });
 
