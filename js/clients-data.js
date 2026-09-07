@@ -43,6 +43,24 @@ const CLIENTS_DATA = [
     testimonial: "Antes anotábamos todo en libretas y el stock era un lío. Con FactuVentas que nos configuraron Joel y Emanuel ahora tenemos el inventario al día y cobramos en segundos. Un cambio abismal para nuestro negocio."
   },
   {
+    id: "distribuidora-libertad",
+    name: "Distribuidora Libertad",
+    category: "mayoristas",
+    categoryName: "Mayoristas & Distribuidoras",
+    photo: "assets/images/distribuidora-libertad-foto.jpg?v=5",
+    photoCaption: "Puesta en marcha, instalación y capacitación de FactuVentas Básico en Distribuidora Libertad (Rivadavia) junto al equipo de FactuTec.",
+    logoText: "DL",
+    logoColor: "#ea580c",
+    logoBg: "#fff7ed",
+    systemInstalled: "FactuVentas Básico ($150.000)",
+    hardware: "1 Puesto de Caja Rápida",
+    location: "Rivadavia, Mendoza",
+    year: "2026",
+    highlight: "Modernización de gestión: pasaron de lentas planillas de Excel a un sistema de caja moderno, ágil y sin complicaciones",
+    rating: 5,
+    testimonial: "Veníamos anotando y controlando todo con planillas de Excel y era un dolor de cabeza diario. Con FactuVentas Básico que nos configuraron Emanuel y Joel dimos el salto: ahora cobramos al instante, todo queda registrado y la caja cierra perfecto. Una solución moderna y a un precio inmejorable."
+  },
+  {
     id: "distribuidora-nahuel",
     name: "Distribuidora Nahuel",
     category: "mayoristas",

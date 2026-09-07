@@ -80,10 +80,10 @@ function initClientsFilter() {
             </span>
             ${
               client.photo
-                ? `<span class="client-badge" style="background: rgba(14, 165, 233, 0.12); color: #0284c7; border: 1px solid rgba(14, 165, 233, 0.25); font-weight: 700; display: inline-flex; align-items: center; gap: 0.25rem;">
+                ? `<button type="button" class="client-badge client-photo-trigger-btn" data-photo-src="${client.photo}" data-photo-title="Instalación en ${client.name}" data-photo-caption="${client.photoCaption || `Instalación y puesta en marcha en ${client.name}`}" title="Tocar para ver la foto real en grande">
                     <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-                    Foto real
-                  </span>`
+                    <span>Foto real 🔍</span>
+                  </button>`
                 : ""
             }
             <span class="client-location">
@@ -128,11 +128,23 @@ function initClientsFilter() {
       )
       .join("");
 
-    // Attach click listeners to cards
+    // Attach click listeners to cards (ignoring clicks on the photo trigger button)
     document.querySelectorAll(".btn-view-client, .client-card").forEach((elem) => {
       elem.addEventListener("click", (e) => {
+        if (e.target.closest(".client-photo-trigger-btn")) return;
         const id = elem.dataset.clientId || elem.dataset.id;
         if (id) openClientModal(id);
+      });
+    });
+
+    // Attach click listeners to "Foto real" badges on cards
+    document.querySelectorAll(".client-photo-trigger-btn").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const src = btn.dataset.photoSrc;
+        const title = btn.dataset.photoTitle;
+        const caption = btn.dataset.photoCaption;
+        if (src) openPhotoLightbox(src, title, caption);
       });
     });
   }
@@ -156,6 +168,53 @@ function initClientsFilter() {
         searchQuery = e.target.value.trim();
         renderClients();
       }, 150);
+    });
+  }
+
+  // Lightbox functionality
+  const lightboxModal = document.getElementById("photo-lightbox-modal");
+  const lightboxCloseBtn = document.getElementById("lightbox-close-button");
+  const lightboxBackdrop = document.getElementById("lightbox-backdrop");
+
+  function openPhotoLightbox(src, title, caption) {
+    const lightboxImg = document.getElementById("lightbox-full-img");
+    const lightboxTitle = document.getElementById("lightbox-client-title");
+    const lightboxCaption = document.getElementById("lightbox-caption-text");
+
+    if (!lightboxModal || !lightboxImg) return;
+
+    lightboxImg.src = src;
+    lightboxImg.alt = title || "Foto de instalación";
+    if (lightboxTitle) lightboxTitle.textContent = title || "Instalación Real FACTUTEC";
+    if (lightboxCaption) lightboxCaption.textContent = caption || "";
+
+    lightboxModal.classList.add("active");
+    lightboxModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closePhotoLightbox() {
+    if (!lightboxModal) return;
+    lightboxModal.classList.remove("active");
+    lightboxModal.setAttribute("aria-hidden", "true");
+    if (!clientModal || !clientModal.classList.contains("active")) {
+      document.body.style.overflow = "";
+    }
+  }
+
+  if (lightboxCloseBtn) {
+    lightboxCloseBtn.addEventListener("click", closePhotoLightbox);
+  }
+
+  if (lightboxBackdrop) {
+    lightboxBackdrop.addEventListener("click", closePhotoLightbox);
+  }
+
+  if (lightboxModal) {
+    lightboxModal.addEventListener("click", (e) => {
+      if (e.target === lightboxModal || e.target.classList.contains("lightbox-img-wrapper")) {
+        closePhotoLightbox();
+      }
     });
   }
 
@@ -191,11 +250,15 @@ function initClientsFilter() {
             client.photo
               ? `
             <div class="modal-photo-card">
-              <div class="modal-photo-wrapper">
+              <div class="modal-photo-wrapper" role="button" tabindex="0" title="Hacé clic para ver la foto en pantalla completa" data-photo-src="${client.photo}" data-photo-title="Instalación en ${client.name}" data-photo-caption="${client.photoCaption || `Instalación y puesta en marcha en ${client.name}`}">
                 <img src="${client.photo}" alt="Instalación en ${client.name}" class="modal-photo-img" loading="lazy">
                 <div class="modal-photo-badge">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
                   <span>Instalación Real FACTUTEC</span>
+                </div>
+                <div class="modal-photo-zoom-hint">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  <span>Tocar para ver en grande</span>
                 </div>
               </div>
               <p class="modal-photo-caption">
@@ -209,7 +272,7 @@ function initClientsFilter() {
           <div class="detail-box">
             <h4 style="display: flex; align-items: center; gap: 0.45rem;"><span class="icon-bubble bubble-xs bubble-emerald"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span> Sistema Implementado</h4>
             <p><strong>${client.systemInstalled}</strong></p>
-            <small>Homologación fiscal ARCA oficial + modo 100% offline</small>
+            <small>${client.systemInstalled.includes("ARCA") ? "Homologación fiscal ARCA oficial + modo 100% offline" : "Licencia definitiva de por vida + modo 100% offline"}</small>
           </div>
           <div class="detail-box">
             <h4 style="display: flex; align-items: center; gap: 0.45rem;"><span class="icon-bubble bubble-xs bubble-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M7 7h.01"></path><path d="M17 7h.01"></path><path d="M7 17h.01"></path><path d="M17 17h.01"></path></svg></span> Configuración de Hardware</h4>
@@ -234,6 +297,25 @@ function initClientsFilter() {
           </a>
         </div>
       `;
+
+      // Attach click to photo in modal to open in lightbox
+      const photoWrapper = modalBody.querySelector(".modal-photo-wrapper");
+      if (photoWrapper) {
+        const triggerZoom = () => {
+          openPhotoLightbox(
+            photoWrapper.dataset.photoSrc,
+            photoWrapper.dataset.photoTitle,
+            photoWrapper.dataset.photoCaption
+          );
+        };
+        photoWrapper.addEventListener("click", triggerZoom);
+        photoWrapper.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            triggerZoom();
+          }
+        });
+      }
     }
 
     clientModal.classList.add("active");
@@ -244,7 +326,10 @@ function initClientsFilter() {
   function closeModal() {
     if (!clientModal) return;
     clientModal.classList.remove("active");
-    document.body.style.overflow = "";
+    // Only reset overflow if lightbox is not active
+    if (!lightboxModal || !lightboxModal.classList.contains("active")) {
+      document.body.style.overflow = "";
+    }
   }
 
   if (modalCloseBtn) {
@@ -257,11 +342,33 @@ function initClientsFilter() {
     });
   }
 
+  // Escape key handler for both modals
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && clientModal?.classList.contains("active")) {
-      closeModal();
+    if (e.key === "Escape") {
+      if (lightboxModal && lightboxModal.classList.contains("active")) {
+        closePhotoLightbox();
+        e.stopPropagation();
+        return;
+      }
+      if (clientModal && clientModal.classList.contains("active")) {
+        closeModal();
+      }
     }
   });
+
+  // Make software screenshot in hero section zoomable as well
+  const screenshotImg = document.querySelector(".eleventa-screenshot-img");
+  if (screenshotImg) {
+    screenshotImg.style.cursor = "zoom-in";
+    screenshotImg.title = "Tocar para ver captura oficial en pantalla completa";
+    screenshotImg.addEventListener("click", () => {
+      openPhotoLightbox(
+        screenshotImg.src,
+        "FACTUVENTAS • Pantalla Oficial de Reportes y Ventas",
+        "Punto de venta FACTUVENTAS oficial con modo offline y compatibilidad fiscal ARCA instalado por FACTUTEC."
+      );
+    });
+  }
 
   // Initial render
   renderClients();
