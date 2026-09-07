@@ -68,6 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!mobileDrawer || !mobileOverlay) return;
     mobileDrawer.classList.add("open");
     mobileOverlay.classList.add("active");
+    document.documentElement.classList.add("modal-open");
+    document.body.classList.add("modal-open");
     document.body.style.overflow = "hidden";
   }
 
@@ -75,6 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!mobileDrawer || !mobileOverlay) return;
     mobileDrawer.classList.remove("open");
     mobileOverlay.classList.remove("active");
+    document.documentElement.classList.remove("modal-open");
+    document.body.classList.remove("modal-open");
     document.body.style.overflow = "";
   }
 

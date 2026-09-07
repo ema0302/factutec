@@ -171,6 +171,25 @@ function initClientsFilter() {
     });
   }
 
+  // Scroll Lock Helpers to prevent background scrolling
+  function lockScroll() {
+    document.documentElement.classList.add("modal-open");
+    document.body.classList.add("modal-open");
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+  }
+
+  function unlockScroll() {
+    const isClientModalOpen = clientModal?.classList.contains("active");
+    const isLightboxOpen = lightboxModal?.classList.contains("active");
+    if (!isClientModalOpen && !isLightboxOpen) {
+      document.documentElement.classList.remove("modal-open");
+      document.body.classList.remove("modal-open");
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+    }
+  }
+
   // Lightbox functionality
   const lightboxModal = document.getElementById("photo-lightbox-modal");
   const lightboxCloseBtn = document.getElementById("lightbox-close-button");
@@ -190,16 +209,14 @@ function initClientsFilter() {
 
     lightboxModal.classList.add("active");
     lightboxModal.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
+    lockScroll();
   }
 
   function closePhotoLightbox() {
     if (!lightboxModal) return;
     lightboxModal.classList.remove("active");
     lightboxModal.setAttribute("aria-hidden", "true");
-    if (!clientModal || !clientModal.classList.contains("active")) {
-      document.body.style.overflow = "";
-    }
+    unlockScroll();
   }
 
   if (lightboxCloseBtn) {
@@ -319,17 +336,14 @@ function initClientsFilter() {
     }
 
     clientModal.classList.add("active");
-    document.body.style.overflow = "hidden";
+    lockScroll();
   }
 
   // Close modal
   function closeModal() {
     if (!clientModal) return;
     clientModal.classList.remove("active");
-    // Only reset overflow if lightbox is not active
-    if (!lightboxModal || !lightboxModal.classList.contains("active")) {
-      document.body.style.overflow = "";
-    }
+    unlockScroll();
   }
 
   if (modalCloseBtn) {
@@ -340,6 +354,49 @@ function initClientsFilter() {
     clientModal.addEventListener("click", (e) => {
       if (e.target === clientModal) closeModal();
     });
+
+    // Prevent background scrolling on backdrop wheel
+    clientModal.addEventListener(
+      "wheel",
+      (e) => {
+        if (e.target === clientModal) {
+          e.preventDefault();
+        }
+      },
+      { passive: false }
+    );
+  }
+
+  // Prevent scroll leakage when reaching top or bottom boundary of modal card
+  const modalCard = document.querySelector(".modal-card");
+  if (modalCard) {
+    modalCard.addEventListener(
+      "wheel",
+      (e) => {
+        const delta = e.deltaY;
+        const isScrollingDown = delta > 0;
+        const isScrollingUp = delta < 0;
+        const { scrollTop, scrollHeight, clientHeight } = modalCard;
+
+        if (isScrollingDown && scrollTop + clientHeight >= scrollHeight - 1) {
+          e.preventDefault();
+        } else if (isScrollingUp && scrollTop <= 0) {
+          e.preventDefault();
+        }
+      },
+      { passive: false }
+    );
+  }
+
+  // Prevent scroll on lightbox overlay
+  if (lightboxModal) {
+    lightboxModal.addEventListener(
+      "wheel",
+      (e) => {
+        e.preventDefault();
+      },
+      { passive: false }
+    );
   }
 
   // Escape key handler for both modals
