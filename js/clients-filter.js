@@ -297,7 +297,7 @@ function initClientsFilter() {
           <div class="detail-box">
             <h4 style="display: flex; align-items: center; gap: 0.45rem;"><span class="icon-bubble bubble-xs bubble-emerald"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span> Sistema Implementado</h4>
             <p><strong>${client.systemInstalled}</strong></p>
-            <small>${client.systemInstalled.includes("ARCA") ? "Homologación fiscal ARCA oficial + modo 100% offline" : "Licencia definitiva de por vida + modo 100% offline"}</small>
+            <small>${client.category === "a-medida" ? "Plataforma especializada desarrollada a medida por FACTUTEC" : (client.systemInstalled.includes("ARCA") ? "Homologación fiscal ARCA oficial + modo 100% offline" : "Licencia definitiva de por vida + modo 100% offline")}</small>
           </div>
           <div class="detail-box">
             <h4 style="display: flex; align-items: center; gap: 0.45rem;"><span class="icon-bubble bubble-xs bubble-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M7 7h.01"></path><path d="M17 7h.01"></path><path d="M7 17h.01"></path><path d="M17 17h.01"></path></svg></span> Configuración de Hardware</h4>

@@ -93,5 +93,23 @@ const CLIENTS_DATA = [
     highlight: "Modernización integral: reemplazo de métodos manuales por cajas rápidas con control de turnos 24hs en dos sucursales",
     rating: 5,
     testimonial: "Manejar dos sucursales abiertas las 24 horas requería un sistema ágil, sin cuotas mensuales y fácil de aprender para todos los turnos. FactuVentas Básico nos ordenó las cajas, el stock y los cambios de turno al 100%. La instalación y atención de Emanuel y Joel fue impecable."
+  },
+  {
+    id: "lubricentro-la-colonia",
+    name: "Lubricentro La Colonia",
+    category: "a-medida",
+    categoryName: "Software a Medida",
+    photo: "assets/images/lubricentro-la-colonia-foto.jpg?v=1",
+    photoCaption: "Puesta en marcha, capacitación e implementación del sistema FactuTec Lubricentro en el local junto al equipo de FactuTec.",
+    logoText: "LLC",
+    logoColor: "#0284c7",
+    logoBg: "#f0f9ff",
+    systemInstalled: "FactuTec Lubricentro (Control de Aceite & Servicios)",
+    hardware: "1 Terminal de Mostrador / Taller",
+    location: "La Colonia, Junín, Mendoza",
+    year: "2026",
+    highlight: "Digitalización del historial de cada vehículo por patente, control de cambios de aceite y seguimiento para fidelización de clientes",
+    rating: 5,
+    testimonial: "Buscábamos una forma profesional de registrar cada cambio de aceite y tener el historial de cada vehículo. Con el sistema de FactuTec buscamos por patente al instante, sabemos qué aceite llevó y cuándo le toca el próximo service. El soporte y la atención de Joel y Emanuel fueron excelentes."
   }
 ];
