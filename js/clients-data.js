@@ -77,5 +77,21 @@ const CLIENTS_DATA = [
     highlight: "Control masivo de inventario, listas de precios por bulto/volumen y despacho ágil de mercadería",
     rating: 5,
     testimonial: "Para una distribuidora el control de stock y los precios mayoristas son clave. FactuVentas nos facilitó el despacho de pedidos y la atención en mostrador. El soporte técnico de FactuTec es de primera."
+  },
+  {
+    id: "24-7",
+    name: "24/7",
+    category: "almacenes",
+    categoryName: "Comercios & Almacenes",
+    logoText: "24/7",
+    logoColor: "#7c3aed",
+    logoBg: "#f5f3ff",
+    systemInstalled: "FactuVentas Básico ($150.000)",
+    hardware: "2 Puestos de Caja Rápida (en sucursales diferentes)",
+    location: "Rivadavia, Mendoza",
+    year: "2026",
+    highlight: "Modernización integral: reemplazo de métodos manuales por cajas rápidas con control de turnos 24hs en dos sucursales",
+    rating: 5,
+    testimonial: "Manejar dos sucursales abiertas las 24 horas requería un sistema ágil, sin cuotas mensuales y fácil de aprender para todos los turnos. FactuVentas Básico nos ordenó las cajas, el stock y los cambios de turno al 100%. La instalación y atención de Emanuel y Joel fue impecable."
   }
 ];
